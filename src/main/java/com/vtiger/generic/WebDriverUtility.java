@@ -19,7 +19,7 @@ public class WebDriverUtility
 	/**
 	 * Maximize the browser window
 	 */
-	public void maximizewindow(WebDriver driver) 
+	public void maximizeWindow(WebDriver driver) 
 	{
 		driver.manage().window().maximize();
 	}
@@ -40,34 +40,34 @@ public class WebDriverUtility
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 	/**
-	 * Select elemet from dd by visible text
+	 * Select element from dd by visible text
 	 * @param element
 	 * @param visibletext
 	 */
 
-	public void selectdropdown(WebElement element,String visibletext)
+	public void selectDropDown(WebElement element,String visibletext)
 	{
 		Select select = new Select(element);
 		select.selectByVisibleText(visibletext);
 	}
 	/**
-	 * Select elemet from dd by index 
+	 * Select element from dd by index 
 	 * @param element
 	 * @param index
 	 */
-	public void selectdropdown(WebElement element,int index)
+	public void selectDropDown(WebElement element,int index)
 	{
 		Select select = new Select(element);
 		select.selectByIndex(index);
 	}
 	/**
-	 * @author AMAR-G
-	 * Select elemet from dd by value
+	 * @author Madhav
+	 * Select element from dd by value
 	 * @param element
 	 * @param value
 	 */
 
-	public void selectdropdownbyvalue(WebElement element,String value)
+	public void selectDropDownByValue(WebElement element,String value)
 	{
 		Select select = new Select(element);
 		select.selectByValue(value);
@@ -83,12 +83,12 @@ public class WebDriverUtility
 	 * Switch frame by index
 	 * @param index
 	 */
-	public void switchframe(WebDriver driver,int index) 
+	public void switchFrame(WebDriver driver,int index) 
 	{
 		driver.switchTo().frame(index);
 	}
 	/**
-	 * switch frame bywebelement
+	 * switch frame by webelement
 	 * @param driver
 	 * @param frameElement
 	 */
@@ -146,7 +146,7 @@ public class WebDriverUtility
 		}
 	}
 	/**
-	 * Wait for elemet until it is displayed
+	 * Wait for element until it is displayed
 	 * @param element
 	 * @throws InterruptedException
 	 */
@@ -166,7 +166,7 @@ public class WebDriverUtility
 		}
 	}
 	/**
-	 * Wait for element and once availabel click on it.
+	 * Wait for element and once available click on it.
 	 * @param driver
 	 * @param xpath
 	 * @throws InterruptedException
@@ -185,6 +185,12 @@ public class WebDriverUtility
 			count++;
 		}
 	}
+	
+	/**
+	 * Switch to multiple windows
+	 * @param driver
+	 * @param
+	 */
 
 
 }

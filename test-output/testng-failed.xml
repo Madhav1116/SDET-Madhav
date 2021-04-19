@@ -3,11 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.vtiger.tc.Create_Contact">
+      <class name="com.vtiger.tc.CreateLeadValidEmails">
         <methods>
-          <include name="createCon"/>
+          <include name="launchBrowser"/>
+          <include name="logInApp"/>
+          <include name="logOutApp"/>
+          <include name="createLead"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
         </methods>
-      </class> <!-- com.vtiger.tc.Create_Contact -->
+      </class> <!-- com.vtiger.tc.CreateLeadValidEmails -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

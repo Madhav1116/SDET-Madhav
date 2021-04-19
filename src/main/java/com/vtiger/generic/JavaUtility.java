@@ -7,7 +7,7 @@ public class JavaUtility
 {
 
 	/**
-	 * @author Pavan
+	 * @author Madhav
 	 *  Generate a random number
 	 * @return randomnumber till 10000
 	 */
@@ -19,7 +19,7 @@ public class JavaUtility
 	}
 
 	/**
-	 * @author AMAR-G
+	 * @author Madhav
 	 * Provide Current System Date
 	 * @return currentSysDate
 	 */
@@ -32,7 +32,7 @@ public class JavaUtility
 
 	}
 	/**
-	 * @author AMAR-G
+	 * @author Madhav
 	 * Provide current month
 	 * @return current month
 	 */
@@ -44,7 +44,7 @@ public class JavaUtility
 	}
 
 	/**
-	 * @author AMAR-G
+	 * @author Madhav
 	 * Gives current date
 	 * @return date
 	 */

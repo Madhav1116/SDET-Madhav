@@ -20,14 +20,19 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.ExcelUtility;
 import com.vtiger.generic.FileUtility;
 import com.vtiger.generic.IConstants;
 import com.vtiger.generic.JavaUtility;
 import com.vtiger.generic.WebDriverUtility;
+import com.vtiger.objectrepo.HomePage;
+import com.vtiger.objectrepo.LoginPage;
+import com.vtiger.objectrepo.OrgPage;
 
-public class CreateOrg {
-
+public class CreateOrg extends BaseClass
+{
+	
 	JavaUtility jv = new JavaUtility();
 	FileUtility fu=  new FileUtility();
 	ExcelUtility eu= new ExcelUtility();
@@ -38,9 +43,9 @@ public class CreateOrg {
 
 
 		//Read data from property file
-		String UN=fu.readDatafrompropfile(IConstants.propfilepath, "username");
-		String PWD=fu.readDatafrompropfile(IConstants.propfilepath, "password");
-		String URL=fu.readDatafrompropfile(IConstants.propfilepath, "url");
+		String UN=fu.readDatafromPropFile(IConstants.propfilepath, "username");
+		String PWD=fu.readDatafromPropFile(IConstants.propfilepath, "password");
+		String URL=fu.readDatafromPropFile(IConstants.propfilepath, "url");
 
 		//Read Test Script Data from Excel
 		String name=eu.readDatafromExcel("Sheet1", 0, 0);
@@ -54,29 +59,35 @@ public class CreateOrg {
 		System.out.println(name+" "+orgname+" "+phonenumber+" "+indDD+" "+ratingDD+" "+typeDD);
 
 		WebDriver driver = new ChromeDriver();
-		wdu.maximizewindow(driver);
+		wdu.maximizeWindow(driver);
 		driver.get(URL);
 		wdu.implicitwait(driver);
-
-		driver.findElement(By.xpath("//input[@name='user_name']")).sendKeys(UN);
-		driver.findElement(By.xpath("//input[@name='user_password']")).sendKeys(PWD);
-		driver.findElement(By.id("submitButton")).click();
-
-		driver.findElement(By.xpath("//a[text()='Organizations']")).click();
-		driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();
-
+       
+		LoginPage lg=new LoginPage(driver);
+		lg.getUsername(UN);
+		lg.getPassword(PWD);
+		lg.getLogbtn();
+		
+		HomePage hp=new HomePage(driver);
+		hp.getOrglnk();
+		
+		OrgPage op=new OrgPage(driver);
+        op.getCreateorgbtn();
+        
+        CreateOrg co=new CreateOrg();
+        co.get
 		driver.findElement(By.xpath("//input[@name='accountname']")).sendKeys(orgname);
 		driver.findElement(By.id("phone")).sendKeys(phonenumber);
 
 		WebElement industry=	driver.findElement(By.xpath("//select[@name='industry']"));
-		wdu.selectdropdown(industry, indDD);
+		wdu.selectDropDown(industry, indDD);
 
 		WebElement rating= driver.findElement(By.xpath("//select[@name='rating']"));
-		wdu.selectdropdown(rating, ratingDD);
+		wdu.selectDropDown(rating, ratingDD);
 
 
 		WebElement type=driver.findElement(By.xpath("//select[@name='accounttype']"));
-		wdu.selectdropdown(type, typeDD);
+		wdu.selectDropDown(type, typeDD);
 
 		driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
 		wdu.refresh(driver);
@@ -91,17 +102,18 @@ public class CreateOrg {
 		searchbox.sendKeys(orgname);
 
 		WebElement orgnamedd=driver.findElement(By.xpath("//div[@id='basicsearchcolumns_real']/select[@id='bas_searchfield']"));
-		wdu.selectdropdown(orgnamedd, "Organization Name");
+		wdu.selectDropDown(orgnamedd, "Organization Name");
 		driver.findElement(By.xpath("//input[@name='submit']")).click();
 
-		WebElement actualorgname=driver.findElement(By.xpath("//a[text()='"+orgname+"']/ancestor::table[@class='lvt small']"));
+		WebElement actualorgname=driver.findElement(By.xpath(""
+				+ "+));
 
 		wdu.waitforElement(actualorgname);
 
 		System.out.println(actualorgname.getText());
 
 		boolean result=actualorgname.getText().contains(orgname);
-
+ 
 		System.out.println(result);
 
 	}

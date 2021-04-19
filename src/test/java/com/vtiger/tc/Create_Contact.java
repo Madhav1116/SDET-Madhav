@@ -23,29 +23,20 @@ public class Create_Contact {
 		public void createCon() throws IOException, InterruptedException
 		{
 			//Read data from property file
-			String UN=fu.readDatafrompropfile(IConstants.propfilepath, "username");
-			String PWD=fu.readDatafrompropfile(IConstants.propfilepath, "password");
-			String URL=fu.readDatafrompropfile(IConstants.propfilepath, "url");
+			String UN=fu.readDatafromPropFile(IConstants.propfilepath, "username");
+			String PWD=fu.readDatafromPropFile(IConstants.propfilepath, "password");
+			String URL=fu.readDatafromPropFile(IConstants.propfilepath, "url");
 			
 			WebDriver driver = new ChromeDriver();
-			wdu.maximizewindow(driver);
+			wdu.maximizeWindow(driver);
 			driver.get(URL);
 			wdu.implicitwait(driver);
-			
-			driver.findElement(By.xpath("//input[@name='user_name']")).sendKeys(UN);
-			driver.findElement(By.xpath("//input[@name='user_password']")).sendKeys(PWD);
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//input[@id='submitButton']")).click();
-			
-			driver.findElement(By.xpath("//a[text()='Contacts']")).click();
-
-			driver.findElement(By.xpath("//img[@title='Create Contact...']")).click();
 
 			Select title = new Select(driver.findElement(By.xpath("//select[@name='salutationtype']")));
 			title.selectByVisibleText("Mr.");
 
-			driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Smith");
-			driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Tylor");
+			driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("John");
+			driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Lee");
 
 			driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
 		}

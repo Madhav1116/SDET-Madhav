@@ -1,17 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
+    <line>
+      <![CDATA[==DB connection==]]>
+    </line>
+    <line>
+      <![CDATA[==Extent report==]]>
+    </line>
+    <line>
+      <![CDATA[==DB closed==]]>
+    </line>
+    <line>
+      <![CDATA[==close Extent report==]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="51283" started-at="2021-04-12T17:27:45 IST" finished-at="2021-04-12T17:28:36 IST">
+  <suite name="Default suite" duration-ms="17133" started-at="2021-04-19T04:03:51 IST" finished-at="2021-04-19T04:04:08 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="51283" started-at="2021-04-12T17:27:45 IST" finished-at="2021-04-12T17:28:36 IST">
-      <class name="com.vtiger.tc.Create_Contact">
-        <test-method status="PASS" signature="createCon()[pri:0, instance:com.vtiger.tc.Create_Contact@7a9273a8]" name="createCon" duration-ms="51244" started-at="2021-04-12T17:27:45 IST" finished-at="2021-04-12T17:28:36 IST">
+    <test name="Default test" duration-ms="17133" started-at="2021-04-19T04:03:51 IST" finished-at="2021-04-19T04:04:08 IST">
+      <class name="com.vtiger.tc.CreateLeadValidEmails">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.vtiger.tc.CreateLeadValidEmails@5bfbf16f]" name="beforeSuite" is-config="true" duration-ms="13" started-at="2021-04-19T04:03:51 IST" finished-at="2021-04-19T04:03:51 IST">
+          <reporter-output>
+            <line>
+              <![CDATA[==DB connection==]]>
+            </line>
+            <line>
+              <![CDATA[==Extent report==]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:com.vtiger.tc.CreateLeadValidEmails@5bfbf16f]" name="launchBrowser" is-config="true" duration-ms="4860" started-at="2021-04-19T04:03:51 IST" finished-at="2021-04-19T04:03:55 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createCon -->
-      </class> <!-- com.vtiger.tc.Create_Contact -->
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="logInApp()[pri:0, instance:com.vtiger.tc.CreateLeadValidEmails@5bfbf16f]" name="logInApp" is-config="true" duration-ms="2403" started-at="2021-04-19T04:03:55 IST" finished-at="2021-04-19T04:03:58 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInApp -->
+        <test-method status="PASS" signature="createLead()[pri:0, instance:com.vtiger.tc.CreateLeadValidEmails@5bfbf16f]" name="createLead" duration-ms="9818" started-at="2021-04-19T04:03:58 IST" finished-at="2021-04-19T04:04:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createLead -->
+        <test-method status="PASS" signature="logOutApp()[pri:0, instance:com.vtiger.tc.CreateLeadValidEmails@5bfbf16f]" name="logOutApp" is-config="true" duration-ms="1" started-at="2021-04-19T04:04:08 IST" finished-at="2021-04-19T04:04:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logOutApp -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.vtiger.tc.CreateLeadValidEmails@5bfbf16f]" name="afterSuite" is-config="true" duration-ms="0" started-at="2021-04-19T04:04:08 IST" finished-at="2021-04-19T04:04:08 IST">
+          <reporter-output>
+            <line>
+              <![CDATA[==DB closed==]]>
+            </line>
+            <line>
+              <![CDATA[==close Extent report==]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.vtiger.tc.CreateLeadValidEmails -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

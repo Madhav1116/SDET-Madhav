@@ -15,6 +15,8 @@ import com.vtiger.generic.FileUtility;
 import com.vtiger.generic.IConstants;
 import com.vtiger.generic.JavaUtility;
 import com.vtiger.generic.WebDriverUtility;
+import com.vtiger.objectrepo.HomePage;
+import com.vtiger.objectrepo.LoginPage;
 public class CreateCOntact_Org {
 
 	JavaUtility jv = new JavaUtility();
@@ -24,21 +26,24 @@ public class CreateCOntact_Org {
 	@Test
 	public void createcontact() throws IOException, InterruptedException {
 
-		String UN=fu.readDatafrompropfile(IConstants.propfilepath, "username");
-		String PWD=fu.readDatafrompropfile(IConstants.propfilepath, "password");
-		String URL=fu.readDatafrompropfile(IConstants.propfilepath, "url");
+		String UN=fu.readDatafromPropFile(IConstants.propfilepath, "username");
+		String PWD=fu.readDatafromPropFile(IConstants.propfilepath, "password");
+		String URL=fu.readDatafromPropFile(IConstants.propfilepath, "url");
 
 
 		WebDriver driver = new ChromeDriver();
-		wdu.maximizewindow(driver);
+		wdu.maximizeWindow(driver);
 		driver.get(URL);
 		wdu.implicitwait(driver);
 
-		driver.findElement(By.xpath("//input[@name='user_name']")).sendKeys(UN);
-		driver.findElement(By.xpath("//input[@name='user_password']")).sendKeys(PWD);
-		driver.findElement(By.id("submitButton")).click();
-		driver.findElement(By.xpath("//a[text()='Contacts']")).click();
-
+		LoginPage lg=new LoginPage(driver);
+		lg.getUsername(UN);
+		lg.getPassword(PWD);
+		lg.getLogbtn();
+		
+		HomePage hp=new HomePage(driver);
+		hp.getContactlnk();
+		
 		driver.findElement(By.xpath("//img[@title='Create Contact...']")).click();
 
 		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("C P");

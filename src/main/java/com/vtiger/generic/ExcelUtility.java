@@ -7,13 +7,14 @@ import java.io.IOException;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelUtility 
 {
 	/**
-	 * @author AMAR-G
+	 * @author Madhav
 	 * To fetch the data from excel sheet
 	 * @param sheetname
 	 * @param rownum
@@ -63,7 +64,7 @@ public class ExcelUtility
 	 * @throws EncryptedDocumentException
 	 * @throws IOException
 	 */
-	public int getrowcount(String path,String sheetname,int rownum) throws EncryptedDocumentException, IOException 
+	public int getRowCount(String path,String sheetname,int rownum) throws EncryptedDocumentException, IOException 
 	{
 		FileInputStream fis = new FileInputStream(path);
 		Workbook wb=WorkbookFactory.create(fis);
@@ -79,11 +80,11 @@ public class ExcelUtility
 	 * @param value
 	 * @throws IOException
 	 */
-	public void writedatainexcel(String path,String sheetname,int rownum, int column,String value) throws IOException 
+	public void writeDatainExcel(String path,String sheetname,int rownum, int column,String value) throws IOException 
 	{
 		FileInputStream fis = new FileInputStream(path);
 		Workbook wb=WorkbookFactory.create(fis);
-		org.apache.poi.ss.usermodel.Sheet sh=wb.getSheet(sheetname);
+		 Sheet sh = wb.getSheet(sheetname);
 		Row r=sh.getRow(rownum);
 		Cell c=r.createCell(column);
 		c.setCellValue(value);
